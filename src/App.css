@@ -1,5 +1,167 @@
 * {
-  margin: 0;
+	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	overflow-x: hidden;
 }
+/* nav */
+.navCenter {
+	top: 0;
+	position: fixed;
+	width: 100vw;
+	height: 35px;
+	background-color: white;
+	display: flex;
+	justify-content: space-between;
+	overflow: hidden;
+	transition: top 0.2s linear;
+	z-index: 1;
+}
+.navNoFixed {
+	top: -35px;
+}
+.navButton {
+	background: transparent;
+	font-size: 2.5rem;
+	width: 40px;
+	border: none;
+	overflow: hidden;
+}
+.navButton:hover {
+	cursor: pointer;
+}
+.navButton:focus {
+	outline: none;
+}
+.navButtonShow {
+	background-color: rgba(255, 250, 250);
+	box-shadow: 2px 1px 4px rgba(66, 64, 64);
+}
+.navLogo {
+	margin: auto;
+	display: flex;
+	text-decoration: none;
+}
+.navIcon {
+	padding-top: 4px;
+	margin-right: 5px;
+	font-size: 1.8rem;
+	width: 35px;
+	color: black;
+}
+.navTitle {
+	color: black;
+	letter-spacing: 4px;
+	transition: all 0.5s ease;
+}
+.navTitle:hover {
+	color: rgb(90, 84, 84);
+}
+.navCart {
+	display: flex;
+	margin-right: 30px;
+	text-decoration: none;
+}
+.navCartIcon {
+	margin-top: 6px;
+	font-size: 1.55rem;
+	color: black;
+}
+.navCount {
+	margin: 2px 4px 0 -10px;
+	background-color: rgb(55, 142, 241);
+	padding: 1px;
+	height: 15px;
+	width: 15px;
+	font-size: 0.6rem;
+	text-align: center;
+	color: white;
+	border-radius: 100px;
+	overflow: hidden;
+}
+.navCountZero {
+	background-color: rgb(168, 167, 167);
+}
+.navList {
+	position: fixed;
+	z-index: 1;
+	height: 100%;
+	width: 250px;
+	left: 0;
+	margin-top: 35px;
+	background-color: rgba(255, 250, 250);
+	border-right: 2px solid gainsboro;
+	box-shadow: 2px 3px 4px rgba(66, 64, 64);
+	text-decoration: none;
+	padding-top: 10px;
+	transition: all 0.5s linear;
+	overflow: hidden;
+}
+.openNav {
+	left: -250px;
+}
+.eachNavList {
+	list-style: none;
+	margin: 15px 0 0 0;
+	padding: 10px 10px 10px 20px;
+	transition: all 0.4s ease;
+	overflow: hidden;
+}
+.eachNavList a {
+	text-decoration: none;
+	color: black;
+	font-size: 1.3rem;
+	letter-spacing: 1px;
+	font-family: Georgia;
+	text-transform: capitalize;
+	transition: all 0.5s ease;
+}
+.eachNavList:hover {
+	background-color: rgb(250, 240, 227);
+	padding-left: 30px;
+}
+.eachNavList a:hover {
+	color: rgb(163, 158, 158);
+}
+@media screen and (min-width: 1000px) {
+	.navButton {
+		display: none;
+	}
+	.navLogo {
+		margin: auto 2vw auto 5vw;
+		display: inline;
+	}
+	.navIcon {
+		display: none;
+	}
+	.navList {
+		position: static;
+		display: flex;
+		height: 100%;
+		width: auto;
+		margin: auto;
+		background-color: transparent;
+		border: none;
+		box-shadow: none;
+		padding-top: 0;
+	}
+	.eachNavList {
+		margin: 7px 6vw auto 0;
+		padding: 0;
+		height: 25px;
+	}
+	.eachNavList a {
+		font-size: 1.1rem;
+		letter-spacing: 1.5px;
+		font-weight: 400;
+		color: rgb(43, 42, 42);
+		text-align: center;
+		padding: 4px 7px 4px 7px;
+		line-height: 25px;
+	}
+	.eachNavList:hover {
+		padding-left: 0;
+		border-radius: 10px;
+	}
+}
+/*end of nav*/
