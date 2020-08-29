@@ -47,10 +47,7 @@ class Hero extends Component {
 
 	render() {
 		return (
-			<section
-				className={this.props.err ? 'hero heroErr' : 'hero'}
-				style={{ backgroundImage: `url(${this.state.heroImg})` }}
-			>
+			<section className="hero" style={{ backgroundImage: `url(${this.state.heroImg})` }}>
 				<h1 className="heroTitle"> {this.props.title} </h1>
 				<div className="heroCenter">
 					<IoIosArrowDropleft onClick={this.imgLeft} className="heroLogo" />

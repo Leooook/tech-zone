@@ -164,7 +164,51 @@
 		border-radius: 10px;
 	}
 }
-/*end of nav*/
+/* end of nav */
+/* footer */
+.footer {
+	height: 10vh;
+	background-color: rgb(95, 92, 92);
+}
+.footerInfo {
+	color: white;
+	margin: 10px 0 0 40px;
+  font-size: 0.8rem;
+  cursor: default;
+}
+.footerLogo {
+	display: flex;
+	justify-content: space-between;
+	margin: 15px 23vw 0 23vw;
+}
+.footerEachLogo {
+	color: white;
+	font-size: 1.3rem;
+	transition: all 0.3s linear;
+}
+.footerEachLogo:hover {
+	color: rgb(199, 194, 194);
+}
+@media screen and (min-width: 1000px) {
+	.footer {
+    display: flex;
+    justify-content: space-between;
+	}
+	.footerInfo {
+		margin: 25px 5vw 0 5vw;
+    font-size: 1rem
+	}
+	.footerLogo {
+		margin: 27px 3vw 0 0;
+	}
+	.footerEachLogo {
+		margin-right: 100px;
+		color: white;
+		font-size: 1.5rem;
+		transition: all 0.3s linear;
+	}
+}
+/* end of footer */
 /* hero */
 .hero {
 	position: relative;
@@ -172,9 +216,6 @@
 	height: 90vh;
 	background: center/cover no-repeat;
 	transition: all 1.5s ease;
-}
-.heroErr {
-	height: 100vh;
 }
 .heroTitle {
 	margin: 15vh auto 0 auto;
@@ -258,7 +299,7 @@
 		margin: 0 auto;
 	}
 }
-/*end of hero*/
+/* end of hero */
 /* services */
 .services {
 	padding: 4% 15% 4% 15%;
@@ -288,3 +329,4 @@
 		grid-template-columns: repeat(2, minmax(200px, 1fr));
 	}
 }
+/* end of service */

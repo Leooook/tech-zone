@@ -10,6 +10,7 @@ import AboutPage from './Pages/aboutPage'
 import ContactPage from './Pages/contactPage'
 import ErrorPage from './Pages/errorPage'
 import Nav from './Components/nav'
+import Footer from './Components/footer'
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 				<Route exact path="/contact" component={ContactPage} />
 				<Route component={ErrorPage} />
 			</Switch>
+      <Footer />
 		</div>
 	)
 }
