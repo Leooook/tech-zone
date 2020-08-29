@@ -173,8 +173,8 @@
 .footerInfo {
 	color: white;
 	margin: 10px 0 0 40px;
-  font-size: 0.8rem;
-  cursor: default;
+	font-size: 0.8rem;
+	cursor: default;
 }
 .footerLogo {
 	display: flex;
@@ -191,12 +191,12 @@
 }
 @media screen and (min-width: 1000px) {
 	.footer {
-    display: flex;
-    justify-content: space-between;
+		display: flex;
+		justify-content: space-between;
 	}
 	.footerInfo {
 		margin: 25px 5vw 0 5vw;
-    font-size: 1rem
+		font-size: 1rem;
 	}
 	.footerLogo {
 		margin: 27px 3vw 0 0;
@@ -215,7 +215,7 @@
 	width: 100%;
 	height: 90vh;
 	background: center/cover no-repeat;
-	transition: all 1.5s ease;
+	transition: all 1s ease;
 }
 .heroTitle {
 	margin: 15vh auto 0 auto;
@@ -330,3 +330,138 @@
 	}
 }
 /* end of service */
+/* about & contact */
+.about {
+	background-color: rgb(246, 248, 248);
+	margin-top: 35px;
+}
+.aboutImg {
+	width: 70vw;
+	margin: 50px 15vw 30px 15vw;
+	border: 2px solid rgb(160, 157, 157);
+}
+.aboutTitle {
+	margin: 0 0 10px 17vw;
+	font-size: 1.6rem;
+	letter-spacing: 3px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	cursor: default;
+}
+.aboutTitleLine {
+	width: 100px;
+	margin-left: 17vw;
+	border-top: 4px solid #5fb7ea;
+}
+.aboutInfo {
+	margin: 20px 15vw 40px 15vw;
+	font-size: 0.85rem;
+	color: rgb(105, 105, 105);
+}
+.aboutA {
+	text-decoration: none;
+}
+.aboutButton,
+.contactButton {
+	width: 130px;
+	margin: 20px 0 40px calc(15vw + 4px);
+	padding: 8px 13px;
+	background-color: #5fb7ea;
+	outline: 2px solid #5fb7ea;
+	outline-offset: 3px;
+	color: white;
+	letter-spacing: 1px;
+	text-align: center;
+	cursor: pointer;
+	transition: color 2s ease;
+	transition: background-color 2s ease;
+	text-transform: uppercase;
+}
+.aboutButton:hover,
+.contactButton:hover {
+	color: #5fb7ea;
+	background-color: white;
+}
+.contactForm {
+	margin: 40px 10vw 40px 15vw;
+}
+.contactForm1,
+.contactForm2 {
+	display: block;
+	margin-bottom: 30px;
+	width: 70vw;
+	height: 35px;
+	padding-left: 5px;
+	border: 1px solid rgb(218, 214, 214);
+	border-radius: 5px;
+	letter-spacing: 1px;
+	box-shadow: 1px 1px 3px rgb(207, 207, 207);
+	color: rgb(71, 71, 71);
+}
+.contactForm2 {
+	resize: none;
+	height: 150px;
+	padding: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.contactForm1:focus,
+.contactForm2:focus {
+	outline: none;
+	box-shadow: 1px 1px 5px #6d8ccf;
+}
+.contactButton {
+	font-size: 1rem;
+	letter-spacing: 2px;
+	margin: 20px 0 40px 4px;
+	border: none;
+}
+@media screen and (min-width: 1000px) {
+	.about {
+		height: calc(90vh - 35px);
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.aboutImg {
+		width: 500px;
+		margin: 120px 0 30px 5vw;
+	}
+	.aboutSection {
+		width: 50vw;
+		margin: 90px 5vw 30px 10vw;
+	}
+	.aboutTitle,
+	.aboutTitleLine {
+		margin-left: 0;
+	}
+	.aboutInfo {
+		width: 30vw;
+		margin: 20px 5vw 40px 0;
+	}
+	.aboutButton {
+		margin-left: 4px;
+	}
+	.contactForm {
+		margin: 20px 10vw 20px 0;
+	}
+	.contactForm1,
+	.contactForm2 {
+		margin-bottom: 20px;
+		width: 30vw;
+		height: 30px;
+	}
+	.contactForm2 {
+		height: 110px;
+	}
+}
+@media screen and (min-width: 1250px) {
+	.aboutImg {
+		margin: 150px 0 30px 15vw;
+	}
+	.aboutSection {
+		margin: 120px 5vw 30px 10vw;
+	}
+	.contactForm1,
+	.contactForm2 {
+		width: 25vw;
+	}
+}
+/* end of about & contact */

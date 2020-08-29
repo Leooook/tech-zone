@@ -40,19 +40,19 @@ class Nav extends Component {
 						<h2 className="navTitle"> TECH ZONE </h2>
 					</Link>
 					<ul className={this.state.isOpen ? 'navList openNav' : 'navList'}>
-						<li className="eachNavList">
+						<li className="eachNavList" onClick={this.openList}>
 							<Link to="/">Home</Link>
 						</li>
-						<li className="eachNavList">
+						<li className="eachNavList" onClick={this.openList}>
 							<Link to="/products">Products</Link>
 						</li>
-						<li className="eachNavList">
+						<li className="eachNavList" onClick={this.openList}>
 							<Link to="/cart">Cart</Link>
 						</li>
-						<li className="eachNavList">
+						<li className="eachNavList" onClick={this.openList}>
 							<Link to="/contact">Contact</Link>
 						</li>
-						<li className="eachNavList">
+						<li className="eachNavList" onClick={this.openList}>
 							<Link to="/about">About</Link>
 						</li>
 					</ul>
