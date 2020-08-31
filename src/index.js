@@ -1,16 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
+
 import './index.css'
 import App from './App'
+import { ContextProvider } from './Context'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
-	<BrowserRouter>
-		<React.StrictMode>
-			<App />
-		</React.StrictMode>
-	</BrowserRouter>,
+	<ContextProvider>
+		<BrowserRouter>
+			<React.StrictMode>
+				<App />
+			</React.StrictMode>
+		</BrowserRouter>
+	</ContextProvider>,
 	document.getElementById('root')
 )
 

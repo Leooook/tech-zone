@@ -5,7 +5,7 @@ import contactImg from '../Images/Contact/contact.jpg'
 function ContactPage() {
 	return (
 		<div className="about">
-			<img src={contactImg} className="aboutImg" />
+			<img src={contactImg} className="aboutImg" alt="contact" />
 			<div className="aboutSection">
 				<h2 className="aboutTitle">Contact Us</h2>
 				<div className="aboutTitleLine" />

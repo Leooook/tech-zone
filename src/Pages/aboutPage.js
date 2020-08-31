@@ -1,3 +1,10 @@
+/*
+ * @Descripttion: 
+ * @Author: voanit
+ * @Date: 2020-08-28 17:15:46
+ * @LastEditors: voanit
+ * @LastEditTime: 2020-08-31 14:10:50
+ */
 import React from 'react'
 
 import aboutImg from '../Images/About/about.jpg'
@@ -5,7 +12,7 @@ import aboutImg from '../Images/About/about.jpg'
 function AboutPage() {
 	return (
 		<div className="about">
-			<img src={aboutImg} className="aboutImg" />
+			<img src={aboutImg} className="aboutImg" alt="about" />
 			<div className="aboutSection">
 				<h2 className="aboutTitle">About Us</h2>
 				<div className="aboutTitleLine" />
