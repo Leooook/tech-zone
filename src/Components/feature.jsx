@@ -6,8 +6,16 @@ import Product from './product'
 
 class Feature extends Component {
 	render() {
-		const { featureProducts, load } = this.props.context
-		const product = featureProducts.map((product) => <Product key={product.slug} product={product} />)
+		const { featureProducts, load, isCartOpen, cartOpen, cartCountFlash } = this.props.context
+		const product = featureProducts.map((product) => (
+			<Product
+				key={product.slug}
+				product={product}
+				isCartOpen={isCartOpen}
+				cartOpen={cartOpen}
+				cartCountFlash={cartCountFlash}
+			/>
+		))
 
 		return (
 			<section className="feature">

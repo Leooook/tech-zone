@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { PropTypes } from 'prop-types'
+import PropTypes from 'prop-types'
 import { IoIosArrowDropleft, IoIosArrowDropright } from 'react-icons/io'
 
 import hero1 from '../Images/Hero/hero1.jpg'

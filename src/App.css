@@ -25,12 +25,16 @@
 	width: 40px;
 	border: none;
 	overflow: hidden;
+	transition: all 0.5s linear;
 }
 .navButton:hover {
 	cursor: pointer;
 }
 .navButton:focus {
 	outline: none;
+}
+.navButton :active {
+	transform: scale(1.05);
 }
 .navButtonShow {
 	background-color: rgba(255, 250, 250);
@@ -58,8 +62,16 @@
 }
 .navCart {
 	display: flex;
-	margin-right: 30px;
+	margin-right: 10px;
 	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.navCart:hover {
+	opacity: 0.6;
+}
+.navCart:active {
+	transform: scale(1.05);
 }
 .navCartIcon {
 	margin-top: 6px;
@@ -77,9 +89,33 @@
 	color: white;
 	border-radius: 100px;
 	overflow: hidden;
+	transition: all 0.2s ease;
 }
 .navCountZero {
 	background-color: rgb(168, 167, 167);
+}
+.cartCountFlash {
+	transform: scale(1.5);
+	background-color: #dfb9b6;
+	opacity: 0.8;
+}
+.cartList {
+	position: fixed;
+	z-index: 1;
+	height: 100%;
+	width: 250px;
+	right: 0;
+	margin-top: 35px;
+	background-color: rgba(255, 250, 250);
+	border-right: 2px solid gainsboro;
+	box-shadow: 2px 3px 4px rgba(66, 64, 64);
+	text-decoration: none;
+	padding-top: 10px;
+	transition: all 0.5s linear;
+	overflow: hidden;
+}
+.openCart {
+	right: -250px;
 }
 .navList {
 	position: fixed;
@@ -647,6 +683,7 @@
 	align-items: center;
 	text-decoration: none;
 	transition: all 0.3s linear;
+	cursor: pointer;
 }
 .productCartPlus {
 	font-weight: bolder;

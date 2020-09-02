@@ -1,13 +1,16 @@
 import React from 'react'
 import { memo } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { INCREASE } from '../Redux/action.js'
+import { connect } from 'react-redux'
 import { HiOutlineShoppingCart } from 'react-icons/hi'
 
-const Product = memo((product) => {
-	const { slug, name, discount, price, brandPic, photo } = product.product
+const Product = memo(({ product, isCartOpen, cartOpen, cartCountFlash, increase }) => {
+	const { slug, name, discount, price, brandPic, photo } = product
 	let lastPrice, priceOff
 	if (discount) {
-		lastPrice = product.product.lastPrice
+		lastPrice = product.lastPrice
 		priceOff = lastPrice - price
 	}
 	return (
@@ -39,13 +42,46 @@ const Product = memo((product) => {
 						<p className="productNowPrice">${price}</p>
 					</div>
 				)}
-				<Link to="/" className="productCart">
+				<div
+					className="productCart"
+					onClick={() => {
+						increase()
+						{
+							if (!isCartOpen) {
+								cartOpen()
+							}
+						}
+						cartCountFlash()
+					}}
+				>
 					<p className="productCartPlus">+</p>
 					<HiOutlineShoppingCart className="productCartLogo" alt="product cart logo" />
-				</Link>
+				</div>
 			</div>
 		</article>
 	)
 })
 
-export default Product
+Product.propTypes = {
+	product: PropTypes.shape({
+		product: PropTypes.shape({
+			slug: PropTypes.number.isRequired,
+			name: PropTypes.string.isRequired,
+			discount: PropTypes.bool.isRequired,
+			price: PropTypes.number.isRequired,
+			lastPrice: PropTypes.number,
+			brandPic: PropTypes.string.isRequired,
+			photo: PropTypes.arrayOf(PropTypes.string).isRequired
+		})
+	})
+}
+
+const mapDispatchToProps = (dispatch, ownerProps) => {
+	const { slug, price } = ownerProps.product
+
+	return {
+		increase: () => dispatch({ type: INCREASE, payload: { slug, price } })
+	}
+}
+
+export default connect(null, mapDispatchToProps)(Product)
