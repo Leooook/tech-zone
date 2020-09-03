@@ -11,6 +11,7 @@ class ContextProvider extends Component {
 		sortedProducts: [],
 		load: true,
 		isCartOpen: false,
+		cartNotOpen: false,
 		isListOpen: false,
 		isFixed: true,
 		cartCountLogo: false,
@@ -64,10 +65,34 @@ class ContextProvider extends Component {
 
 	openList = () => {
 		this.setState({ isListOpen: !this.state.isListOpen })
+  }
+  
+  closeList = () => {
+		this.setState({ isListOpen: false })
 	}
 
 	cartOpen = () => {
-		this.setState({ isCartOpen: !this.state.isCartOpen, isFixed: true })
+		if (!this.state.cartNotOpen) {
+			this.setState({ isCartOpen: !this.state.isCartOpen, isFixed: true })
+		}
+	}
+
+	cartClose = () => {
+		if (!this.state.cartNotOpen) {
+			this.setState({ isCartOpen: false, isFixed: true })
+		}
+	}
+
+	cartCantOpen = () => {
+		if (!this.state.cartNotOpen) {
+			this.setState({ cartNotOpen: true, isCartOpen: false })
+		}
+	}
+
+	cartCanOpen = () => {
+		if (this.state.cartNotOpen) {
+			this.setState({ cartNotOpen: false })
+		}
 	}
 
 	cartCountFlash = () => {
@@ -82,9 +107,13 @@ class ContextProvider extends Component {
 			<myContext.Provider
 				value={{
 					...this.state,
-					openList: this.openList,
+          openList: this.openList,
+          closeList: this.closeList,
 					cartOpen: this.cartOpen,
-					cartCountFlash: this.cartCountFlash
+					cartClose: this.cartClose,
+					cartCountFlash: this.cartCountFlash,
+					cartCantOpen: this.cartCantOpen,
+					cartCanOpen: this.cartCanOpen
 				}}
 			>
 				{this.props.children}

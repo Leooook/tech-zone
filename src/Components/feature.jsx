@@ -6,7 +6,16 @@ import Product from './product'
 
 class Feature extends Component {
 	render() {
-		const { featureProducts, load, isCartOpen, cartOpen, cartCountFlash } = this.props.context
+		const {
+			featureProducts,
+			load,
+			isCartOpen,
+			cartOpen,
+			closeList,
+			cartCanOpen,
+			cartClose,
+			cartCountFlash
+		} = this.props.context
 		const product = featureProducts.map((product) => (
 			<Product
 				key={product.slug}
@@ -14,6 +23,9 @@ class Feature extends Component {
 				isCartOpen={isCartOpen}
 				cartOpen={cartOpen}
 				cartCountFlash={cartCountFlash}
+				closeList={closeList}
+				cartCanOpen={cartCanOpen}
+				cartClose={cartClose}
 			/>
 		))
 

@@ -1,10 +1,3 @@
-/*
- * @Descripttion: 
- * @Author: voanit
- * @Date: 2020-08-28 17:15:46
- * @LastEditors: voanit
- * @LastEditTime: 2020-08-31 14:10:50
- */
 import React from 'react'
 
 import aboutImg from '../Images/About/about.jpg'
