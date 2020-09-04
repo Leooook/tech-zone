@@ -65,9 +65,9 @@ class ContextProvider extends Component {
 
 	openList = () => {
 		this.setState({ isListOpen: !this.state.isListOpen })
-  }
-  
-  closeList = () => {
+	}
+
+	closeList = () => {
 		this.setState({ isListOpen: false })
 	}
 
@@ -102,18 +102,23 @@ class ContextProvider extends Component {
 		}, 200)
 	}
 
+	getRoom = (slug) => {
+		return this.state.products.filter((product) => product.slug === parseInt(slug))[0]
+	}
+
 	render() {
 		return (
 			<myContext.Provider
 				value={{
 					...this.state,
-          openList: this.openList,
-          closeList: this.closeList,
+					openList: this.openList,
+					closeList: this.closeList,
 					cartOpen: this.cartOpen,
 					cartClose: this.cartClose,
 					cartCountFlash: this.cartCountFlash,
 					cartCantOpen: this.cartCantOpen,
-					cartCanOpen: this.cartCanOpen
+					cartCanOpen: this.cartCanOpen,
+					getRoom: this.getRoom
 				}}
 			>
 				{this.props.children}

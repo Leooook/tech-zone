@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { HiOutlineShoppingCart } from 'react-icons/hi'
 
 import { INCREASE } from '../Redux/action.js'
+import PriceTag from './priceTag'
 
 const Product = memo(
 	({ product, isCartOpen, cartOpen, closeList, cartCanOpen, cartClose, cartCountFlash, increase }) => {
@@ -39,19 +40,7 @@ const Product = memo(
 					</Link>
 				</div>
 				<div className="productLastPart">
-					{discount ? (
-						<div className="productPricePart1">
-							<p className="productLastPrice1">
-								TICKET&nbsp;<span className="productLastPrice2">${lastPrice}</span>
-							</p>
-							<p className="productNowPrice">${price}</p>
-							<p className="productLastPrice1">${priceOff} OFF^</p>
-						</div>
-					) : (
-						<div className="productPricePart1 productPricePart2">
-							<p className="productNowPrice">${price}</p>
-						</div>
-					)}
+					<PriceTag discount={discount} price={price} lastPrice={lastPrice} priceOff={priceOff} />
 					<div
 						className="productCart"
 						onClick={() => {
