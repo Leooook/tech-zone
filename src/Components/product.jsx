@@ -31,6 +31,7 @@ const Product = memo(
 						to={`/products/:${slug}`}
 						className="productLink"
 						onClick={() => {
+							window.scrollTo(0, 0)
 							closeList()
 							cartCanOpen()
 							cartClose()

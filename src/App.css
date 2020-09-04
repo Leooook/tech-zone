@@ -12,9 +12,8 @@
 	background-color: white;
 	display: flex;
 	justify-content: space-between;
-	overflow: hidden;
 	transition: top 0.2s linear;
-	z-index: 1;
+	z-index: 3;
 }
 .navNoFixed {
 	top: -35px;
@@ -154,7 +153,7 @@
 }
 .cartList {
 	position: fixed;
-	z-index: 1;
+	z-index: 4;
 	height: 100%;
 	width: 250px;
 	right: 0;
@@ -173,7 +172,7 @@
 }
 .navList {
 	position: fixed;
-	z-index: 1;
+	z-index: 2;
 	height: 100%;
 	width: 250px;
 	left: 0;
@@ -632,6 +631,7 @@
 }
 .productPhoto {
 	width: 45%;
+	height: 45%;
 	margin-right: 5%;
 }
 .productNamePart {
@@ -1064,12 +1064,43 @@
 /* end of cartPage */
 /* detailPage */
 .detailPage {
-	margin-top: 35px;
+	margin-top: 45px;
 	min-height: calc(90vh - 35px);
 }
 .detailPage .load {
-	margin: 0;
+	width: 80px;
+	margin: 0 auto;
 	padding-top: 30vh;
+}
+.detailPagePic {
+	position: fixed;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgb(255, 255, 255);
+	text-align: center;
+}
+.detailPicClose {
+	position: fixed;
+	font-size: 2rem;
+	right: 30px;
+	top: 10px;
+	color: rgb(65, 64, 64);
+	transition: all 0.4s ease;
+	cursor: pointer;
+}
+.detailPicClose:hover {
+	color: rgb(184, 184, 184);
+}
+.detailPicClose:active {
+	transform: scale(1.03);
+}
+.detailFullPic {
+	max-height: 70vh;
+	max-width: 100vw;
+	margin: 15vh auto 0 auto;
 }
 .detailMainPart {
 	margin: 50px 10px 10px 20px;
@@ -1087,10 +1118,10 @@
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .picSwithchBox {
-	width: 90vw;
+	margin: 0;
 }
 .picBox {
-	width: 90%;
+	width: 70%;
 	margin: 0 auto;
 	display: flex;
 	padding: 20px 0;
@@ -1100,6 +1131,7 @@
 	width: 100%;
 	position: relative;
 	right: 100%;
+	cursor: pointer;
 }
 .detailPhotoActive1 {
 	-ms-transform: translateX(calc(-100%));
@@ -1116,15 +1148,15 @@
 	transition: all 0.4s ease;
 }
 .picSwitchTrigger {
-	margin: 40px 0 50px 0;
+	margin: 40px 0 10px 0;
 	width: 100%;
 	justify-content: center;
 	display: flex;
 }
 .detailTriggerBox {
 	border: 1px solid rgb(201, 201, 201);
-	width: 11%;
-	height: 11%;
+	width: 50px;
+	height: 50px;
 	padding: 5px;
 	margin: 0 2px;
 	box-shadow: 1px 1px 3px rgb(184, 184, 184);
@@ -1135,8 +1167,8 @@
 }
 .detailTriggerBoxNone1 {
 	border: 1px solid rgb(201, 201, 201);
-	width: 11%;
-	height: 11%;
+	width: 50px;
+	height: 50px;
 	padding: 5px;
 	margin: 0 2px;
 	box-shadow: 1px 1px 3px rgb(184, 184, 184);
@@ -1144,8 +1176,8 @@
 }
 .detailTriggerBoxNone2 {
 	border: 1px solid rgb(201, 201, 201);
-	width: 11%;
-	height: 11%;
+	width: 50px;
+	height: 50px;
 	padding: 5px;
 	margin: 0 2px;
 	box-shadow: 1px 1px 3px rgb(184, 184, 184);
@@ -1153,8 +1185,8 @@
 }
 .picButtonSwitch1 {
 	border: 1px solid rgb(201, 201, 201);
-	width: 11%;
-	height: 11%;
+	width: 50px;
+	height: 50px;
 	padding: 5px;
 	margin: 0 2px;
 	box-shadow: 1px 1px 3px rgb(184, 184, 184);
@@ -1162,9 +1194,10 @@
 	order: 1;
 	position: relative;
 	z-index: 1;
-	left: calc(11% + 4px);
+	left: 54px;
 	transition: all 0.4s ease;
 	cursor: pointer;
+	flex-shrink: 0;
 }
 .picButtonSwitch1:hover {
 	transform: scale(1.03);
@@ -1179,8 +1212,8 @@
 }
 .picButtonSwitch2 {
 	border: 1px solid rgb(201, 201, 201);
-	width: 11%;
-	height: 11%;
+	width: 50px;
+	height: 50px;
 	padding: 5px;
 	margin: 0 2px;
 	box-shadow: 1px 1px 3px rgb(184, 184, 184);
@@ -1188,9 +1221,10 @@
 	order: 2;
 	position: relative;
 	z-index: 1;
-	right: calc(11% + 4px);
+	right: 54px;
 	transition: all 0.4s ease;
 	cursor: pointer;
+	flex-shrink: 0;
 }
 .picButtonSwitch2:hover {
 	transform: scale(1.03);
@@ -1202,6 +1236,151 @@
 	-o-transform: translateX(calc(100% + 4px));
 	border: none;
 	transition: all 0.5s ease;
+}
+.detailInfo {
+	display: flex;
+	justify-content: center;
+}
+.detailInfo1 {
+	margin-right: 10px;
+	background-color: rgba(119, 164, 233, 0.938);
+	padding: 5px 5px;
+	color: white;
+	font-size: 0.8rem;
+	font-family: cursive;
+	border-radius: 5px;
+	box-shadow: 1px 1px 3px rgba(119, 164, 233, 0.938);
+	cursor: default;
+}
+.detailInfoColor {
+	background-color: rgb(106, 187, 1);
+}
+.detailEtrasPart {
+	margin: 30px 30px 20px 30px;
+	font-size: 0.9rem;
+	font-family: 'Times New Roman', Times, serif;
+	line-height: 25px;
+	letter-spacing: 1px;
+}
+.detailEtrasPart > p {
+	line-height: 28px;
+	margin-bottom: 15px;
+}
+.detailPricePart {
+	width: 100%;
+	height: 220px;
+	border-radius: 0 0 5px 5px;
+	background-color: rgb(247, 247, 48);
+	padding-top: 20px;
+}
+.detailPricePartDiscount {
+	height: 250px;
+}
+.detailPricePart .productPricePart1 {
+	position: static;
+	margin: 0 auto;
+	background-color: rgb(247, 247, 48);
+	height: 89px;
+	width: 150px;
+	border: 1px solid black;
+	box-shadow: 5px 5px 3px black;
+	padding: 5px 7px;
+}
+.detailPricePart .productPricePart2 {
+	width: 150px;
+	height: 55px;
+}
+.detailPriceLink {
+	text-decoration: none;
+}
+.detailPriceReturn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	width: 98%;
+	height: 40px;
+	margin: 30px auto 10px auto;
+	text-align: center;
+	font-size: 1.2rem;
+	color: black;
+	font-weight: 600;
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+.detailPriceReturn:hover {
+	background-color: rgb(252, 252, 252);
+}
+.detailPriceReturn:active {
+	transform: scale(1.01);
+}
+.detailCartButton {
+	margin-top: 20px;
+	background-color: black;
+	color: rgb(255, 255, 255);
+	font-size: 1.25rem;
+	letter-spacing: 1px;
+}
+.detailCartButton:hover {
+	background-color: rgb(48, 48, 48);
+}
+.detailOverviewPart {
+	margin: 30px;
+}
+.detailOverviewPart > h3 {
+	font-size: 1.4rem;
+	margin-bottom: 5px;
+}
+.detailOverviewPart > p strong {
+	font-size: 0.9rem;
+	line-height: 53px;
+	color: rgb(73, 73, 73);
+}
+.detailOverviewPart > p {
+	font-size: 0.8rem;
+	color: rgb(109, 108, 108);
+	line-height: 33px;
+}
+@media screen and (min-width: 800px) {
+	.detailPage {
+		max-width: 800px;
+		margin: 45px auto 0 auto;
+		border-top: 1px solid rgb(187, 186, 186);
+		border-left: 1px solid rgb(187, 186, 186);
+		border-right: 1px solid rgb(187, 186, 186);
+	}
+	.detailMainPart {
+		margin: 25px 10px 10px 20px;
+		position: relative;
+	}
+	.detailInfoPart {
+		display: flex;
+	}
+	.detailTitle {
+		position: absolute;
+		right: 0;
+		width: 400px;
+		margin-bottom: 30px;
+		right: 0;
+	}
+	.detailCorePart {
+		width: 300px;
+		margin: 0 0 30px 30px;
+	}
+	.picBox {
+		width: 50%;
+	}
+	.picSwitchTrigger {
+		margin: 20px 0 10px 0;
+	}
+	.detailEtrasPart {
+		width: 350px;
+		margin: 100px 50px 0 55px;
+	}
+	.detailPricePart {
+		width: 750px;
+		margin: 30px auto;
+	}
 }
 
 /* end of detailPage */

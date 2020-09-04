@@ -132,7 +132,7 @@ class Nav extends Component {
 								<div className="navLinkDiv">
 									<Link
 										className="navCartLink"
-										to="./cart"
+										to="../cart"
 										onClick={() => {
 											this.triggerCart(closeList, cartCantOpen)
 										}}
