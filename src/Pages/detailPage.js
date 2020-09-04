@@ -3,7 +3,6 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 
 import { withConsumer } from '../Context'
 import Load from '../Components/load'
-import PriceTag from '../Components/priceTag.jsx'
 
 class DetailPage extends Component {
 	state = {
@@ -89,12 +88,7 @@ class DetailPage extends Component {
 		const product = this.props.context.getRoom(this.props.match.params.slug.slice(1))
 
 		if (product) {
-			const { name, price, discount, freeShipping, freeReturn, brandPic, photo, extras, detail } = product
-			let lastPrice, priceOff
-			if (discount) {
-				lastPrice = product.lastPrice
-				priceOff = lastPrice - price
-			}
+			const { name, brandPic, photo } = product
 
 			const newPhoto = this.draftPhoto(photo)
 
