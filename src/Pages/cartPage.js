@@ -54,21 +54,15 @@ class Cart extends Component {
 							</div>
 						</div>
 						<div className="navPageLinkDiv">
-							<Link
-								to={`/checkout`}
-								className="cartPageLink1"
-								onClick={() => {
-									closeList()
-									cartClose()
-								}}
-							>
+							<div className="cartPageLink1">
 								<RiHandbagFill className="cartPageLogo" />
 								<p className="cartPageButton1">Proceed to Checkout</p>
-							</Link>
+							</div>
 							<Link
 								to={`/products`}
 								className="cartPageLink1 cartPageLink2"
 								onClick={() => {
+									window.scrollTo(0, 0)
 									closeList()
 									cartCanOpen()
 									cartClose()

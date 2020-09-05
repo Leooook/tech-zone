@@ -19,6 +19,11 @@ function AboutPage() {
 					<br />Payment via debit, credit or approved finance cards, as well as gift cards through our payment
 					terminals is the preferred way to make payment in our stores. However, we will still be accepting
 					cash if that is the only way you can make payment.
+					<br />
+					<br />
+					<strong className="aboutColor">
+						*THIS WEBSITE IS JUST USE FOR REACT STUDY, IT WILL NOT USE IN ANY COMMERICAL USING.*
+					</strong>
 				</p>
 				<a href="http://www.google.com" target="view_window" className="aboutA">
 					<div className="aboutButton">MORE INFO</div>

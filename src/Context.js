@@ -15,7 +15,16 @@ class ContextProvider extends Component {
 		isListOpen: false,
 		isFixed: true,
 		cartCountLogo: false,
-		top: 0
+		top: 0,
+
+		search: '',
+		brands: 'All',
+		price: 0,
+		maxPrice: 0,
+		discount: false,
+		freeShipping: false,
+		freeReturn: false,
+		sort: 'Default'
 	}
 
 	getData = async () => {
@@ -23,10 +32,12 @@ class ContextProvider extends Component {
 			const data = await Client.getEntries({ content_type: 'techZone' })
 
 			let products = this.formData(data).sort(this.sortCompare('slug'))
+			let maxPrice = Math.max(...products.map((product) => product.price))
+			let price = maxPrice
 			let featureProducts = products.filter((product) => product.popular === true)
 			let sortedProducts = products
 
-			this.setState({ products, featureProducts, sortedProducts, load: false })
+			this.setState({ products, featureProducts, sortedProducts, load: false, price, maxPrice })
 		} catch (error) {
 			console.log(error)
 		}
@@ -106,6 +117,78 @@ class ContextProvider extends Component {
 		return this.state.products.filter((product) => product.slug === parseInt(slug))[0]
 	}
 
+	compare = (value, type) => {
+		if (value === 'price') {
+			return (x, y) => {
+				let a = x[value]
+				let b = y[value]
+				if (type === 0) {
+					return a - b
+				} else {
+					return b - a
+				}
+			}
+		}
+		if (value === 'name') {
+			return (x, y) => {
+				let a = x[value]
+				let b = y[value]
+				if (type === 0) {
+					return a.localeCompare(b)
+				} else {
+					return -a.localeCompare(b)
+				}
+			}
+		}
+	}
+
+	handleChange = (event) => {
+		const target = event.target
+		const value = target.type === 'checkbox' ? target.checked : target.value
+		const name = target.name
+
+		this.setState({ [name]: value }, this.sortProducts)
+	}
+
+	sortProducts = () => {
+		let { products, search, brands, price, maxPrice, discount, freeShipping, freeReturn, sort } = this.state
+		let tmpProducts = products
+
+		if (search !== '') {
+			let reg = new RegExp(search, 'i')
+			tmpProducts = tmpProducts.filter((tmpProduct) => reg.test(tmpProduct.name) === true)
+		}
+		if (brands !== 'All') {
+			tmpProducts = tmpProducts.filter((tmpProduct) => tmpProduct.brand === brands)
+		}
+		if (parseInt(price) !== maxPrice) {
+			tmpProducts = tmpProducts.filter((tmpProduct) => tmpProduct.price <= parseInt(price))
+		}
+		if (discount === true) {
+			tmpProducts = tmpProducts.filter((tmpProduct) => tmpProduct.discount === true)
+		}
+		if (freeReturn === true) {
+			tmpProducts = tmpProducts.filter((tmpProduct) => tmpProduct.freeReturn === true)
+		}
+		if (freeShipping === true) {
+			tmpProducts = tmpProducts.filter((tmpProduct) => tmpProduct.freeShipping === true)
+		}
+		if (sort === 'Price: High - Low') {
+			tmpProducts = tmpProducts.sort(this.compare('price', 1))
+		}
+		if (sort === 'Price: Low - High') {
+			tmpProducts = tmpProducts.sort(this.compare('price', 0))
+		}
+		if (sort === 'Name: A - Z') {
+			tmpProducts = tmpProducts.sort(this.compare('name', 0))
+		}
+		if (sort === 'Name: Z - A') {
+			tmpProducts = tmpProducts.sort(this.compare('name', 1))
+		}
+
+		this.setState({ sortedProducts: tmpProducts })
+	}
+
 	render() {
 		return (
 			<myContext.Provider
@@ -118,7 +201,8 @@ class ContextProvider extends Component {
 					cartCountFlash: this.cartCountFlash,
 					cartCantOpen: this.cartCantOpen,
 					cartCanOpen: this.cartCanOpen,
-					getRoom: this.getRoom
+					getRoom: this.getRoom,
+					handleChange: this.handleChange
 				}}
 			>
 				{this.props.children}

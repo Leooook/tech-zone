@@ -8,6 +8,7 @@ import { myContext } from '../Context.js'
 import hero1 from '../Images/Hero/hero1.jpg'
 import hero2 from '../Images/Hero/hero2.jpg'
 import hero3 from '../Images/Hero/hero3.jpg'
+import productImg from '../Images/Hero/productImg.jpg'
 
 const heroImgs = [ hero1, hero2, hero3 ]
 
@@ -57,35 +58,56 @@ class Hero extends Component {
 			} else {
 				this.setState({ heroImg: heroImgs[this.state.count + 1], count: this.state.count + 1 })
 			}
-		}, 10000)
+		}, 20000)
 		this.setState({ timer })
 	}
 
 	render() {
 		const { closeList, cartCanOpen, cartClose } = this.context
-		return (
-			<section className="hero" style={{ backgroundImage: `url(${this.state.heroImg})` }}>
-				<h1 className="heroTitle"> {this.props.title} </h1>
-				<div className="heroCenter">
-					<IoIosArrowDropleft onClick={this.imgLeft} className="heroLogo" />
-					<Link
-						to={`${this.props.path}`}
-						className="heroBanner"
-						onClick={() => {
-							this.trigger(closeList, cartCanOpen, cartClose)
-						}}
-					>
-						{this.props.banner}
-					</Link>
-					<IoIosArrowDropright onClick={this.imgRight} className="heroLogo" />
-				</div>
-				<ul className="heroImgList">
-					<li className={this.state.count === 0 ? 'heroImgSelected' : 'heroImgNotSelected'} />
-					<li className={this.state.count === 1 ? 'heroImgSelected' : 'heroImgNotSelected'} />
-					<li className={this.state.count === 2 ? 'heroImgSelected' : 'heroImgNotSelected'} />
-				</ul>
-			</section>
-		)
+		if (this.props.class) {
+			return (
+				<section className="hero heroProduct" style={{ backgroundImage: `url(${productImg})` }}>
+					<h1 className="heroTitle"> {this.props.title} </h1>
+					<div className="heroCenter heroCenterProduct">
+						<Link
+							to={`${this.props.path}`}
+							className="heroBanner"
+							onClick={() => {
+								window.scrollTo(0, 0)
+								this.trigger(closeList, cartCanOpen, cartClose)
+							}}
+						>
+							{this.props.banner}
+						</Link>
+					</div>
+				</section>
+			)
+		} else {
+			return (
+				<section className="hero" style={{ backgroundImage: `url(${this.state.heroImg})` }}>
+					<h1 className="heroTitle"> {this.props.title} </h1>
+					<div className="heroCenter">
+						<IoIosArrowDropleft onClick={this.imgLeft} className="heroLogo" />
+						<Link
+							to={`${this.props.path}`}
+							className="heroBanner"
+							onClick={() => {
+								window.scrollTo(0, 0)
+								this.trigger(closeList, cartCanOpen, cartClose)
+							}}
+						>
+							{this.props.banner}
+						</Link>
+						<IoIosArrowDropright onClick={this.imgRight} className="heroLogo" />
+					</div>
+					<ul className="heroImgList">
+						<li className={this.state.count === 0 ? 'heroImgSelected' : 'heroImgNotSelected'} />
+						<li className={this.state.count === 1 ? 'heroImgSelected' : 'heroImgNotSelected'} />
+						<li className={this.state.count === 2 ? 'heroImgSelected' : 'heroImgNotSelected'} />
+					</ul>
+				</section>
+			)
+		}
 	}
 }
 

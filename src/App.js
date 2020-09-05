@@ -8,7 +8,6 @@ import DetailPage from './Pages/detailPage'
 import CartPage from './Pages/cartPage'
 import AboutPage from './Pages/aboutPage'
 import ContactPage from './Pages/contactPage'
-import CheckOutPage from './Pages/checkOutPage'
 import ErrorPage from './Pages/errorPage'
 import Nav from './Components/nav'
 import Footer from './Components/footer'
@@ -24,7 +23,6 @@ function App() {
 				<Route exact path="/cart" component={CartPage} />
 				<Route exact path="/about" component={AboutPage} />
 				<Route exact path="/contact" component={ContactPage} />
-				<Route exact path="/checkout" component={CheckOutPage} />
 				<Route component={ErrorPage} />
 			</Switch>
 			<Footer />

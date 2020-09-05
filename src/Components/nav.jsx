@@ -58,6 +58,7 @@ class Nav extends Component {
 						<li
 							className="eachNavList"
 							onClick={() => {
+								window.scrollTo(0, 0)
 								this.trigger(openList, cartCanOpen, cartClose)
 							}}
 						>
@@ -66,6 +67,7 @@ class Nav extends Component {
 						<li
 							className="eachNavList"
 							onClick={() => {
+								window.scrollTo(0, 0)
 								this.trigger(openList, cartCanOpen, cartClose)
 							}}
 						>
@@ -74,6 +76,7 @@ class Nav extends Component {
 						<li
 							className="eachNavList"
 							onClick={() => {
+								window.scrollTo(0, 0)
 								openList()
 								cartCantOpen()
 							}}
@@ -83,6 +86,7 @@ class Nav extends Component {
 						<li
 							className="eachNavList"
 							onClick={() => {
+								window.scrollTo(0, 0)
 								this.trigger(openList, cartCanOpen, cartClose)
 							}}
 						>
@@ -91,6 +95,7 @@ class Nav extends Component {
 						<li
 							className="eachNavList"
 							onClick={() => {
+								window.scrollTo(0, 0)
 								this.trigger(openList, cartCanOpen, cartClose)
 							}}
 						>
@@ -134,20 +139,13 @@ class Nav extends Component {
 										className="navCartLink"
 										to="../cart"
 										onClick={() => {
+											window.scrollTo(0, 0)
 											this.triggerCart(closeList, cartCantOpen)
 										}}
 									>
 										View Cart
 									</Link>
-									<Link
-										className="navCartLink navCartColor"
-										to="./checkout"
-										onClick={() => {
-											this.triggerCart(closeList, cartCantOpen)
-										}}
-									>
-										Check Out
-									</Link>
+									<div className="navCartLink navCartColor">Check Out</div>
 								</div>
 							</div>
 						)}
