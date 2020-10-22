@@ -1,3 +1,10 @@
+/*
+ * @Descripttion: 
+ * @Author: voanit
+ * @Date: 2020-08-28 17:15:46
+ * @LastEditors: voanit
+ * @LastEditTime: 2020-10-22 23:24:09
+ */
 import React from 'react'
 
 import contactImg from '../Images/Contact/contact.jpg'
@@ -12,7 +19,7 @@ function ContactPage() {
 				<form
 					className="contactForm"
 					target="view_window"
-					action="http://formspree.io/bohanzhao.unsw@gmail.com"
+					action="https://formspree.io/f/mjvpweyp"
 					method="POST"
 				>
 					<input className="contactForm1" type="text" name="fullname" placeholder="Full Name" required />
