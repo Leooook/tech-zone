@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-import laodPic from '../Images/Load/load.gif'
+import laodPic from '../Images/Load/load.gif';
 
-function Load() {
-	return (
-		<section className="load">
-			<img src={laodPic} className="loadPic" alt="load" />
-		</section>
-	)
-}
+const Load = () => {
+  return (
+    <section className='load'>
+      <img src={laodPic} className='loadPic' alt='load' />
+    </section>
+  );
+};
 
-export default Load
+export default Load;
